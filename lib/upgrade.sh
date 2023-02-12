@@ -19,8 +19,8 @@ fi
 newVersion=$(curl https://raw.githubusercontent.com/MatsuriDayo/nekoray/main/nekoray_version.txt)
 
 # Change the file.
-sed -i "s/${oldTag}/${newTag}/g" Casks/nekoray.rub
+sed -i "s/${oldTag}/${newTag}/g" Casks/nekoray.rb
 sed -i "s/${oldTag}/${newTag}/g" api/tag.txt
 
-sed -i "s/${oldVersion}/${newVersion}/g" Casks/nekoray.rub
+sed -i "s/${oldVersion}/${newVersion}/g" Casks/nekoray.rb
 sed -i "s/${oldVersion}/${newVersion}/g" api/version.txt
