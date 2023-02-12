@@ -15,6 +15,7 @@ or
 
 ```shell
 brew tap tdjnodj/nekoray
+brew update
 brew install nekoray --cask
 ```
 
