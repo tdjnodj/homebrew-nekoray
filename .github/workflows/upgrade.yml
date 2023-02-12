@@ -8,19 +8,19 @@ jobs:
     update:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@master
+ #           - name: Checkout
+ #             uses: actions/checkout@master
 
-            - name: Check
-              run: |
-                  bash lib/upgrade.sh
+
+#            - name: Check
+#              run: |
+#                  bash lib/upgrade.sh
 
             - name: git
               run: |
+                  sudo apt install git ssh -y
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git config --local user.name "github-actions[bot]"
-                  git add .
-                  git commit -m "upgrade"
                   mkdir -p /home/runner/.ssh
                   cat >/home/runner/.ssh/config <<-EOF
                   Host github.com
@@ -33,10 +33,16 @@ jobs:
                   ${{ secrets.ACCESS_TOKEN }}
                   EOF
                   chmod +r /home/runner/.ssh/key
+
+                  git clone git@github.com:tdjnodj/homebrew-nekoray.git
+                  cd homebrew-nekoray
+                  bash lib/upgrade.sh
+                  git add .
+                  git commit -m "upgrade"
                   git push
 
-            - name: Push
-              uses: ad-m/github-push-action@master
-              with:
-                  github_token: ${{ secrets.ACCESS_TOKEN }}
-                  branch: main
+#            - name: Push
+#              uses: ad-m/github-push-action@master
+#              with:
+#                  github_token: ${{ secrets.ACCESS_TOKEN }}
+#                  branch: main
