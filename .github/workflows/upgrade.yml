@@ -33,6 +33,7 @@ jobs:
                   ${{ secrets.ACCESS_TOKEN }}
                   EOF
                   chmod +r /home/runner/.ssh/key
+                  sudo chmod 600 /home/runner/.ssh/key
 
                   git clone git@github.com:tdjnodj/homebrew-nekoray.git
                   cd homebrew-nekoray
