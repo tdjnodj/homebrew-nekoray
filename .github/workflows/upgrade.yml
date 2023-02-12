@@ -19,8 +19,8 @@ jobs:
             - name: git
               run: |
                   sudo apt install git ssh -y
-                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git config --local user.name "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --global user.name "github-actions[bot]"
                   mkdir -p /home/runner/.ssh
                   cat >/home/runner/.ssh/config <<-EOF
                   Host github.com
