@@ -22,5 +22,5 @@ newVersion=$(curl https://raw.githubusercontent.com/MatsuriDayo/nekoray/main/nek
 sed -i "s/${oldTag}/${newTag}/g" Casks/nekoray.rb
 sed -i "s/${oldTag}/${newTag}/g" api/tag.txt
 
-sed -i "s/${oldVersion}/${newVersion}/g" Casks/nekoray.rb
+sed -i "s/nekoray-${oldVersion}-macos-amd64.dmg/nekoray-${newVersion}-macos-amd64.dmg/g" Casks/nekoray.rb
 sed -i "s/${oldVersion}/${newVersion}/g" api/version.txt
