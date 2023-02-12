@@ -21,6 +21,7 @@ jobs:
                   git config --local user.name "github-actions[bot]"
                   git add .
                   git commit -m "upgrade"
+                  mkdir -p /home/runner/.ssh
                   cat >/home/runner/.ssh/config <<-EOF
                   Host github.com
                       HostName github.com
@@ -32,6 +33,7 @@ jobs:
                   ${{ secrets.ACCESS_TOKEN }}
                   EOF
                   chmod +r /home/runner/.ssh/key
+                  git push
 
             - name: Push
               uses: ad-m/github-push-action@master
