@@ -21,9 +21,10 @@ jobs:
                   git config --local user.name "github-actions[bot]"
                   git add .
                   git commit -m "upgrade"
-                  cat >~/.ssh/key.key <<-EOF
+                  cat >/home/runner/.ssh/key.key <<-EOF
                   ${{ secrets.ACCESS_TOKEN }}
                   EOF
+                  chmod +R /home/runner/.ssh/key.key
 
             - name: Push
               uses: ad-m/github-push-action@master
