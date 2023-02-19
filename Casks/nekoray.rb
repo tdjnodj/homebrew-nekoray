@@ -1,5 +1,5 @@
 cask "nekoray" do
-    version "2.15"
+    version "2.16"
     sha256 "fd18ea560e7c94ea4c5fc6789310871a4264c9121e823a0ec964c1483a9955f6"
   
     url "https://github.com/tdjnodj/nekoray/releases/download/#{version}/2.16-macos-amd64.dmg",
