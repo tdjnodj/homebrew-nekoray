@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the old version and TAG.
-oldVersion=$(cat Casks/nekoray.rb | grep version | tail -1 | cut -d'/' -f9 | cut -d'-' -f1,2,3,4,5 | cut -d\" -f1)
+oldVersion=$(cat Casks/nekoray.rb | grep version | tail -1 | cut -d'/' -f9 | cut -d'-' -f2,3,4,5)
 oldTag=$(cat Casks/nekoray.rb | grep version |head -1 | cut -d\" -f2)
 
 # Get the newest TAG.
