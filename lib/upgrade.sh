@@ -23,14 +23,14 @@ oldSha256=$(cat Casks/nekoray.rb | grep "sha256" | cut -d '"' -f 2)
 mkdir tmp_dmg/
 cd tmp_dmg/
 curl -L -O https://github.com/tdjnodj/nekoray/releases/download/${newTag}/nekoray-${newVersion}-macos-amd64.dmg
-newSha256=$(openssl dgst -sha256 nekoray-${newVersion}-macos-amd64.dmg)
+newSha256=$(openssl dgst -sha256 nekoray-${newVersion}-macos-amd64.dmg | cut -d '=' -f2 | tr -d '[:space:]')
 
 cd ..
 rm -rf tmp_dmg/
 
 # Change the file.
-sed -i "s/${oldSha256}/${newSha256}/g" Casks/nekoray.rb
+sed -i "s/${oldSha256}/${newSha256}" Casks/nekoray.rb
 
-sed -i "s/${oldTag}/${newTag}/g" Casks/nekoray.rb
+sed -i "s/${oldTag}/${newTag}" Casks/nekoray.rb
 
 sed -i "s/nekoray-${oldVersion}-macos-amd64.dmg/nekoray-${newVersion}-macos-amd64.dmg/g" Casks/nekoray.rb
