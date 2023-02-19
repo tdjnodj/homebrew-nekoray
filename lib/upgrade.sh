@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Get the old version and TAG.
-oldVersion=$(cat api/version.txt)
-oldTag=$(cat api/tag.txt)
+oldVersion=$(cat Casks/nekoray.rb | grep version |head -1 | cut -d\" -f2)
+oldTag=$(nekoray-2.15-2023-02-12)
 
 # Get the newest TAG.
-newTag=$(curl https://api.github.com/repos/matsuridayo/nekoray/tags -u "tdjnodj:"| grep 'name' | cut -d\" -f4 | head -1)
+newTag=$(curl https://api.github.com/repos/tdjnodj/nekoray/tags -u "tdjnodj:"| grep 'name' | cut -d\" -f4 | head -1)
 if [ -z "$newTag" ]; then
     echo "Didn't get the newest TAG!"
     exit 1
@@ -16,7 +16,7 @@ if [ "$newTag" == "$oldVersion" ]; then
     exit 0
 fi
 
-newVersion=$(curl https://raw.githubusercontent.com/MatsuriDayo/nekoray/main/nekoray_version.txt)
+newVersion=$(curl https://raw.githubusercontent.com/tdjnodj/nekoray/main/nekoray_version.txt)
 
 oldSha256=$(cat Casksnekoray.rb | grep "sha256" | cut -d '"' -f 2)
 
