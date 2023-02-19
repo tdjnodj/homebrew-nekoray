@@ -29,8 +29,8 @@ cd ..
 rm -rf tmp_dmg/
 
 # Change the file.
-sed -i -n1 "s/${oldSha256}/${newSha256}" Casks/nekoray.rb
+sed -i -n 1 "s/${oldSha256}/${newSha256}" Casks/nekoray.rb
 
-sed -i -n1 "s/${oldTag}/${newTag}" Casks/nekoray.rb
+sed -i -n 1 "s/${oldTag}/${newTag}" Casks/nekoray.rb
 
 sed -i "s/nekoray-${oldVersion}-macos-amd64.dmg/nekoray-${newVersion}-macos-amd64.dmg/g" Casks/nekoray.rb
