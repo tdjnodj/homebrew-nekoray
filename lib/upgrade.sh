@@ -2,7 +2,7 @@
 
 # Get the old version and TAG.
 oldVersion=$(cat Casks/nekoray.rb | grep version |head -1 | cut -d\" -f2)
-oldTag=$(nekoray-2.15-2023-02-12)
+oldTag=$(cat Casks/nekoray.rb | grep version | tail -1 | cut -d'/' -f9 | cut -d'-' -f1,2,3,4,5)
 
 # Get the newest TAG.
 newTag=$(curl https://api.github.com/repos/tdjnodj/nekoray/tags -u "tdjnodj:"| grep 'name' | cut -d\" -f4 | head -1)
@@ -18,7 +18,7 @@ fi
 
 newVersion=$(curl https://raw.githubusercontent.com/tdjnodj/nekoray/main/nekoray_version.txt)
 
-oldSha256=$(cat Casksnekoray.rb | grep "sha256" | cut -d '"' -f 2)
+oldSha256=$(cat Casks/nekoray.rb | grep "sha256" | cut -d '"' -f 2)
 
 mkdir tmp_dmg/
 cd tmp_dmg/
