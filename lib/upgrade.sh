@@ -32,7 +32,5 @@ rm -rf tmp_dmg/
 sed -i "s/${oldSha256}/${newSha256}/g" Casks/nekoray.rb
 
 sed -i "s/${oldTag}/${newTag}/g" Casks/nekoray.rb
-sed -i "s/${oldTag}/${newTag}/g" api/tag.txt
 
 sed -i "s/nekoray-${oldVersion}-macos-amd64.dmg/nekoray-${newVersion}-macos-amd64.dmg/g" Casks/nekoray.rb
-sed -i "s/${oldVersion}/${newVersion}/g" api/version.txt
