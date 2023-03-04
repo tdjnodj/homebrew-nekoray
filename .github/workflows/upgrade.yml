@@ -1,9 +1,9 @@
 name: upgrade
 
 on:
-    workflow_dispatch:
-        schedule:
-            - cron: "0 0 */3 * *"
+  schedule:
+    - cron: "0 12 * * 3"
+
 jobs:
     update:
         runs-on: ubuntu-latest
