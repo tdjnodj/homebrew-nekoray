@@ -1,4 +1,4 @@
-name: upgrade
+name: upgrade by hand
 
 on:
   workflow_dispatch:
