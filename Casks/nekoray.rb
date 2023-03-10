@@ -1,8 +1,8 @@
 cask "nekoray" do
-    version "2.18"
-    sha256 "2a9397a5549e2ef86d4e902c28a2bec944508b904abf848ea9482bbe1f3b1db2"
+    version "2.19"
+    sha256 "03e0e7f37747e46af70707c33128783161cc1426be1ce5ca68d6feba946dde68"
   
-    url "https://github.com/tdjnodj/nekoray/releases/download/#{version}/nekoray-2.18-2023-03-02-macos-amd64.dmg",
+    url "https://github.com/tdjnodj/nekoray/releases/download/#{version}/nekoray-2.19-2023-03-08-macos-amd64.dmg",
         verified: "github.com/MatsuriDayo/nekoray/"
     name "nekoray"
     desc "Qt based cross-platform GUI proxy configuration manager (backend: v2ray / sing-box)"
