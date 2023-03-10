@@ -1,0 +1,48 @@
+name: upgrade
+
+on:
+  workflow_dispatch:
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+ #           - name: Checkout
+ #             uses: actions/checkout@master
+
+
+#            - name: Check
+#              run: |
+#                  bash lib/upgrade.sh
+
+            - name: git
+              run: |
+                  sudo apt install git ssh -y
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --global user.name "github-actions[bot]"
+                  mkdir -p /home/runner/.ssh
+                  cat >/home/runner/.ssh/config <<-EOF
+                  Host github.com
+                      HostName github.com
+                      User git
+                      IdentityFile /home/runner/.ssh/key
+                      IdentitiesOnly yes
+                  EOF
+                  cat >/home/runner/.ssh/key <<-EOF
+                  ${{ secrets.ACCESS_TOKEN }}
+                  EOF
+                  chmod +r /home/runner/.ssh/key
+                  sudo chmod 600 /home/runner/.ssh/key
+
+                  git clone git@github.com:tdjnodj/homebrew-nekoray.git
+                  cd homebrew-nekoray
+                  bash lib/upgrade.sh
+                  git add .
+                  git commit -m "upgrade"
+                  git push
+
+#            - name: Push
+#              uses: ad-m/github-push-action@master
+#              with:
+#                  github_token: ${{ secrets.ACCESS_TOKEN }}
+#                  branch: main
